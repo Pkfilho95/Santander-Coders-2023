@@ -1,0 +1,47 @@
+table {
+    border-collapse: collapse;
+  }
+  
+th, td {
+    border: 1px solid lightgray;
+    padding: 8px;
+    text-align: center;
+}
+
+button {
+    padding: 7px 30px;
+    border: none
+}
+
+.header {
+    height: 50px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.first-col {
+    text-align: left;
+    padding-right: 50px;
+}
+
+.borderless {
+    border: none;
+}
+
+.bg-lightblue { 
+    background-color: #7ebff2;
+    color: white;
+}
+
+.bg-blue {
+    background-color: #4a87ec;
+    color: white;
+}
+
+.bg-purple {
+    background-color: #7073ec;
+    color: white;
+}
