@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    background-color: #130d21;
+    color: #fffbf0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    background-color: #181326;;
+}
+
+button {
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    background-color: #a6f750;
+    color: #181326;
+    font-weight: bolder;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fffbf0;
+    color: #fffbf0;
+}
+
+.form-group-aceite {
+    margin: auto 15px;
+}
