@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <button id="btnEnviar" aria-label="Botão para envio de formulário">
+      Enviar
+    </button>
+
+    <script>
+        const btn = document.getElementById("btnEnviar");
+
+        btn.addEventListener("click", () => {
+            btn.setAttribute("aria-label", "Botão para reenvio de formulário");
+        });
+    </script>
+  </body>
+</html>
