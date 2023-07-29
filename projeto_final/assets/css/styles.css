@@ -1,0 +1,23 @@
+nav li a.active {
+    color: #ffbe33 !important
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.off-img img {
+    height: 175px;
+    width: 175px;
+}
+
+.social-links a {
+    width: 30px;
+    height: 30px;
+}
+
+.bg-card {
+    background-color: #222831;
+}
