@@ -98,7 +98,6 @@ nav .font-title {
     color: #fff;
     background: #212529;
 }
-
 /* Fim do links */
 
 .widhtHeigth {
@@ -112,12 +111,18 @@ nav .font-title {
 }
 /* End Our Menu */
 
+/* Start About */
+section.about img {
+    max-width: 100%;
+    width: 27.5rem;
+}
+/* End About */
+
 /* Start Customers */
 .img-customers img {
     height: 7rem;
     width: 7rem;
 }
-
 /* End Customers */
 
 /* Start Footer */
