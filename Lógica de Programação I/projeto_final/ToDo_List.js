@@ -67,7 +67,7 @@ function allTasks() {
 
 // função que busca uma tarefa específica do array
 // recebe o ID e retorna a tarefa
-function getTaks(id) {
+function getTask(id) {
 
     // busca a tarefa através do ID
     let task = todo_list.find(item => item.id === id)
