@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+    <title>Master CRUD</title>
+</head>
+
+<body class="mb-5">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Master CRUD</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Products</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex" role="filter">
+                        <input class="form-control me-2" type="text" onkeyup="textFilter()" id="filter-product" placeholder="Filter" aria-label="filter">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-3 mx-5">
+
+        <div class="d-flex justify-content-between">
+            <div class="btn-group">
+                <a href="#" name="btn-filter" class="btn btn-dark active" onclick="App.getFilter(this)">All Products</a>
+                <a href="#" name="btn-filter" class="btn btn-dark" onclick="App.getFilter(this)">Boats</a>
+                <a href="#" name="btn-filter" class="btn btn-dark" onclick="App.getFilter(this)">Oars</a>
+            </div>
+            <button type="button" class="btn btn-success" onclick="document.getElementById('register-form').reset()" data-bs-toggle="modal" data-bs-target="#registerModal">
+                Register Product
+            </button>
+        </div>
+
+        <!-- Start Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="registerModalLabel">Register Product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form action="" id="register-form">
+                                <div class="mb-3 form-floating">
+                                    <select class="form-select" name="register-product" id="register-product"
+                                        onchange="App.updateCategory(this.value, 'register')">
+                                        <option value="">Select a product</option>
+                                        <option value="Boat">Boat</option>
+                                        <option value="Oar">Oar</option>
+                                    </select>
+                                    <label for="register-product">Product</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input class="form-control" name="register-price" id="register-price" type="number"
+                                        placeholder="Price">
+                                    <label for="register-price">Price</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <select class="form-select" name="register-category" id="register-category">
+                                        <option value="">Select a category</option>
+                                    </select>
+                                    <label for="register-category">Category</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input class="form-control" name="register-material" id="register-material"
+                                        type="text" placeholder="Material">
+                                    <label for="register-material">Material</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" onclick="App.submitForm()"><i
+                                class="fa fa-plus"></i> Regiter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Register Modal -->
+
+        <!-- Start update Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="updateModalLabel">Update Product</h1>
+                        <button type="button" id="modal-close-button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form action="" id="update-form">
+                                <div class="mb-3 form-floating">
+                                    <select class="form-select" name="update-product" id="update-product" disabled>
+                                        <!-- Insert the object's product by js -->
+                                    </select>
+                                    <label for="update-product">Product</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input class="form-control" name="update-price" id="update-price" type="number"
+                                        placeholder="Price">
+                                    <label for="update-price">Price</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <select class="form-select" name="update-category" id="update-category">
+                                        <option value="">Select a category</option>
+                                    </select>
+                                    <label for="update-category">Category</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input class="form-control" name="update-material" id="update-material" type="text"
+                                        placeholder="Material">
+                                    <label for="update-material">Material</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="update-button" class="btn btn-success"><i class="fa fa-refresh"></i>
+                            Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Update Modal -->
+
+        <hr>
+
+        <!-- Start Table -->
+        <table class="table table-borderless table-striped table-dark text-center">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Material</th>
+                    <th>Crew Size</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="products-table-body">
+            </tbody>
+        </table>
+        <!-- End Table -->
+    </main>
+
+    <footer class="fixed-bottom w-100">
+        <div class="container-fluid bg-dark text-light p-4">
+            <div class="d-flex justify-content-center">
+                Developed by Pkfilho95
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./app.js"></script>
+    <script>
+        const textFilter = () => {
+            // select all rows
+            const trs = document.querySelectorAll('#products-table-body tr')
+
+            // get input value
+            const filter = document.querySelector('#filter-product').value
+
+            // create regex expression (case-insensitive)
+            const regex = new RegExp(filter, 'i')
+
+            // check if the filter value matches the content of a table cell
+            const isFoundInTds = (td) => regex.test(td.innerHTML)
+
+            // check if the filter value is found in at least one cell
+            // of the child cells (columns) of a table row
+            const isFound = (childrenArr) => childrenArr.some(isFoundInTds)
+
+            // receive an object with style and children properties (the row's children)
+            const setTrStyleDisplay = ({ style, children }) => {
+                style.display = isFound([...children]) ? '' : 'none'
+            }
+
+            // hide the table rows based on the value entered in the filter field
+            trs.forEach(setTrStyleDisplay)
+        }
+    </script>
+</body>
+
+</html>
