@@ -167,7 +167,7 @@ class App {
             const cls = productValue === 'Boat' ? Boat : Oar
             
             const data = {
-                price: priceValue,
+                price: Number(priceValue),
                 category: categoryValue,
                 material: materialValue
             }
@@ -257,7 +257,7 @@ class App {
         optionProduct.text = obj.product
 
         document.getElementById('update-product').appendChild(optionProduct)
-        document.getElementById('update-price').value = obj.price
+        document.getElementById('update-price').value = parseFloat(obj.price.replace(/[^0-9.-]+/g,""))
         document.getElementById('update-material').value = obj.material
         App.updateCategory(obj.product, 'update')
         document.getElementById('update-category').getElementsByTagName('option')[obj.category.value+1].selected = true
