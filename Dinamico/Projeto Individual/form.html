@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+    <title>Register</title>
+</head>
+<body>
+    <aside>
+        <nav class="navbar-vertical sidebar-open">
+            <div class="d-flex flex-column flex-shrink-0 p-3 list-unstyled fw-semibold">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item"><a class="nav-link nav-link-active" href=""><i class="fa fa-bar-chart"></i>Dashboard</a></li>
+                    <hr>
+                    <li class="nav-item"><a class="nav-link nav-link-disabled">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./form.html"><i class="fa fa-plus"></i>Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./list.html"><i class="fa fa-list"></i>Management</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="margin-sidebar-open" id="main-content">
+        <nav class="navbar fixed-top">
+            <div class="container-fluid">
+                <i class="fa fa-reorder fa-lg" id="navbar-toggle"></i>
+            </div>
+        </nav>
+
+        <div class="container-fluid pt-3">
+            <div class="col-12 bg">
+                <div class="block-header">
+                    <h6 class="block-title fw-bold" id="formTitle">Register Movie</h6>
+                </div>
+                <form class="p-4 pb-0" method="post" id="registerForm">
+                    <div class="row">
+                        <div class="col-12" id="alert">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <input class="form-control" type="url" name="image" id="image" placeholder=" ">
+                            <label class="form-label" for="image">Image URL</label>
+                            <div class="invalid-feedback" id="imageError"></div>    
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <input class="form-control" type="text" name="title" id="title" placeholder=" ">
+                            <label class="form-label" for="title">Title</label>
+                            <div class="invalid-feedback" id="titleError"></div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <input class="form-control" type="text" name="director" id="director" placeholder=" ">
+                            <label class="form-label" for="director">Director</label>
+                            <div class="invalid-feedback" id="directorError"></div>    
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <select class="form-control" name="genre" id="genre" placeholder=" ">
+                                <option value="" disabled selected>Choose a option</option>
+                                <option value="Action">Action</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Western">Western</option>
+                            </select>
+                            <label class="form-label" for="genre">Genre</label>
+                            <div class="invalid-feedback" id="genreError"></div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <input class="form-control" type="number" name="year" id="year" placeholder=" ">
+                            <label class="form-label" for="year">Release Year</label>
+                            <div class="invalid-feedback" id="yearError"></div>    
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <input class="form-control" type="number" name="duration" id="duration" placeholder=" ">
+                            <label class="form-label" for="duration">Duration</label>
+                            <div class="invalid-feedback" id="durationError"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <button class="btn primary" type="submit" id="formBtn"><i class="fa fa-plus"></i>Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="d-flex justify-content-end me-2">
+                Developed by Pkfilho95
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery-3.7.0.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

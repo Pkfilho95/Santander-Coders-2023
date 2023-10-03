@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --content-bg: #130d21;
+    --btn-bg: #251d3a;
+    --math-btn-bg: #a6f750;
+    --text-color: #fffbf0;
+}
+
+.container {
+    margin: 5% auto;
+    padding: 2rem 1rem;
+    width: 30rem;
+    font-size: 4rem;
+    background-color: var(--content-bg);
+    border-radius: 1rem;
+}
+
+.screen {
+    background-color: var(--btn-bg);
+    margin: 1rem 1rem;
+    text-align: right;
+    color: var(--text-color);
+    height: 5rem;
+}
+
+.screen span {
+    margin: 1rem;
+}
+
+button {
+    padding: 1rem;
+    margin: 0.5rem 1rem;
+    border: none;
+    border-radius: 25%;
+    height: 5rem;
+    width: 5rem;
+    font: 2rem bolder;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    border: var(--text-color) 0.1rem solid;
+}
+
+.btn-math {
+    background-color: var(--math-btn-bg);
+    color: var(--btn-bg);
+    font-weight: bolder;
+}
+
+.btn-math-active,  .btn-math:hover{
+    background-color: var(--btn-bg);
+    color: var(--math-btn-bg);
+    border: var(--math-btn-bg) 0.1rem solid;
+}
+
+.btn-equal {
+    width: 12rem;
+    border-radius: 1rem;
+}

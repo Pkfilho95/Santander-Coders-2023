@@ -1,0 +1,242 @@
+:root {
+    --root-bg: #130d21;
+    --root-color: #fffbf0;
+    --content-bg: #181326;
+    --primary-bg: #a6f750;
+    --primery-color: #181326;
+    --navbar-bg: #000000;
+    --scrollbar-color: #595959;
+    --scrollbar-bg: #000000;
+    --input-placeholder-color: transparent
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    margin-right: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 5px;
+}
+
+.bg {
+    background-color: var(--content-bg);
+}
+
+.status {
+    margin-right: 0.5rem;
+}
+
+.action {
+    color: var(--primary-bg);
+    cursor: pointer;
+}
+
+/* ---------- Tags ---------- */
+
+body {
+    background-color: var(--root-bg);
+    color: var(--root-color);
+    padding-top: 4rem;
+}
+
+main {
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+}
+
+option {
+    background-color: var(--content-bg);
+}
+
+td {
+    max-width: 5rem;
+}
+
+p {
+    margin: 0;
+}
+
+footer {
+    margin: 1rem auto;
+    opacity: 30%;
+}
+
+/* -------------------------- */
+
+/* --------- Grid ---------- */
+
+.row {
+    margin-bottom: 0.5rem;
+}
+
+.col-sm-12 {
+    margin-bottom: 2rem;
+}
+
+/* ------------------------- */
+
+/* ---------- Form ----------- */
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.block-header {
+    background-color: var(--primary-bg);
+    padding: 1rem 1.5rem;
+}
+
+.block-title {
+    color: var(--primery-color);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.form-label {
+    transform: translateX(1rem);
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0.1rem solid var(--root-color);
+    color: var(--root-color);
+    transform: translateY(2rem);
+}
+
+.form-control:focus {
+    background-color: transparent;
+    box-shadow: none;
+    border-color: var(--root-color);
+    color: var(--root-color);
+}
+
+.form-control::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+.form-control:placeholder-shown ~ .form-label {
+    transform: translateX(1rem);
+}
+
+.form-control:focus ~ .form-label,
+.form-control ~ .form-label {
+    transform: translateY(-2rem);
+}
+
+/* -------------------------- */
+
+/* --------- Button --------- */
+
+.btn i {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.25rem;
+}
+
+.primary {
+    background-color: var(--primary-bg);
+    color: var(--primery-color);
+    font-weight: bold;
+    border: solid var(--primery-color) 0.0625rem;
+}
+
+.primary:hover {
+    background-color: var(--primery-color);
+    color: var(--primary-bg);
+    border: solid var(--primary-bg) 0.0625rem;
+}
+
+/* -------------------------- */
+
+/* ---------- Navbar ----------- */
+
+.navbar {
+    background-color: var(--navbar-bg);
+    height: 4rem;
+}
+
+#navbar-toggle {
+    cursor: pointer;
+}
+
+.navbar-vertical {
+    position: fixed;
+    left: -17.5rem;
+    height: 100%;
+    width: 17.5rem;
+    background-color: var(--navbar-bg);
+    z-index: 100;
+    transition: all 0.2s ease-out;
+    overflow-y: auto;
+}
+
+.navbar-vertical i {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+}
+
+.sidebar-open {
+    left: 0;
+}
+
+.margin-sidebar-open {
+    margin-left: 17.5rem;
+}
+
+.nav-link {
+    color: var(--root-color);
+    opacity: 50%;
+}
+
+.nav-link:hover {
+    color: var(--root-color);
+    opacity: 100%;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+}
+
+.nav-link-disabled:hover {
+    color: var(--root-color);
+    opacity: 50%;
+    cursor: default;
+}
+
+.nav-link-active {
+    opacity: 100%;
+}
+
+/* -------------------------- */
+
+@media only screen and (max-width: 576px) {
+    .margin-sidebar-open {
+        margin-left: 0;
+    }
+    #navbar-toggle-times {
+        visibility: visible;
+    }
+}
