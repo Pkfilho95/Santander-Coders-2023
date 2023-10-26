@@ -1,0 +1,23 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let column of columns">
+        <div class="card h-100 bg-dark text-{{column.color}}">
+            <div class="card-body">
+                <h5 class="card-title">{{column.name}}</h5>
+                <hr class="border-2">
+                <ng-container *ngFor="let task of taskList">
+                    <ng-container *ngIf="task.status === column.value">
+                        <div class="border border-1 border-{{column.color}} rounded-1 my-2">
+                            <div class="d-flex justify-content-between py-2 ps-2">
+                                {{task.title}}
+                                <div>
+                                    <i class="bi bi-eye me-2" (click)="showTaskDetail(task)" role="button"></i>
+                                    <i class="bi bi-pencil me-2" (click)="updateTaskForm(task)" role="button"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

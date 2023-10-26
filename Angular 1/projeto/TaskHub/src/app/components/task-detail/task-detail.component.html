@@ -1,0 +1,34 @@
+<div class="p-3 mt-4 bg-dark text-light rounded-1">
+    <div class="row mt-2">
+        <div class="col-12">
+            <h3 class="d-flex justify-content-between">
+                Detail
+                <i (click)="clearDetail()" role="button">&times;</i>
+            </h3>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control text-bg-dark" type="text" value="{{task.title}}" disabled>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control text-bg-dark" cols="30" rows="2" disabled>{{task.description}}</textarea>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <label class="form-label" for="date">Due Date</label>
+            <input class="form-control text-bg-dark" type="date" value="{{task.date}}" disabled>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <label class="form-label" for="status">Status</label>
+            <input class="form-control text-bg-dark" type="text" value="{{task.status | statusFormat}}" disabled>
+        </div>
+    </div>
+</div>

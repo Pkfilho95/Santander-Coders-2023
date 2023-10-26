@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <app-task-form class="col" (newTask)="onAddTask($event)" (updateTask)="onSaveTask($event)" [task]="updateTask"></app-task-form>
+        <app-task-detail class="col" [task]="detailTask"></app-task-detail>
+    </div>
+    <hr class="my-4 border-2">
+    <app-task-list [taskList]="database" (detailTask)="onDetailTask($event)" (updateTask)="onUpdateTask($event)"></app-task-list>
+</div>
+
+<app-footer></app-footer>
