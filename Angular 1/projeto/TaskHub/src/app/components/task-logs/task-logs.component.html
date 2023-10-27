@@ -1,0 +1,16 @@
+<div class="p-3 bg-dark text-light rounded-1 h-100">
+    <div class="row mt-2">
+        <div class="col-12">
+            <h3>Logs</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="d-flex flex-column-reverse">
+                <div class="p-2" *ngFor="let task of taskLogs">
+                    {{task.log}}: task {{task.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

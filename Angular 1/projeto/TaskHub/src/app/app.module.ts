@@ -10,6 +10,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { StatusFormatPipe } from './pipes/status-format.pipe';
+import { TaskLogsComponent } from './components/task-logs/task-logs.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { StatusFormatPipe } from './pipes/status-format.pipe';
     FooterComponent,
     TaskDetailComponent,
     StatusFormatPipe,
+    TaskLogsComponent,
   ],
   imports: [
     BrowserModule,

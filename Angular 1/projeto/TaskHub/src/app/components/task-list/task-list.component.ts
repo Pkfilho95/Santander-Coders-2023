@@ -9,7 +9,8 @@ import { Task } from 'src/app/models/task-model';
 export class TaskListComponent {
   @Input() taskList: Task[] = []
   @Output() detailTask = new EventEmitter()
-  @Output() updateTask = new EventEmitter()
+  @Output() editTask = new EventEmitter()
+  // @Output() logTask = new EventEmitter()
 
   columns = [
     {name: 'To Do', value: 'toDo', color: 'warning'},
@@ -17,12 +18,16 @@ export class TaskListComponent {
     {name: 'Completed', value: 'Completed', color: 'success'}
   ]
 
+  // showLogTask(task: Task) {
+  //   this.logTask.emit(task)
+  // }
+
   showTaskDetail(task: Task) {
     this.detailTask.emit(task)
   }
 
-  updateTaskForm(task: Task) {
-    this.updateTask.emit(task)
+  editTaskForm(task: Task) {
+    this.editTask.emit(task)
   }
 
 }

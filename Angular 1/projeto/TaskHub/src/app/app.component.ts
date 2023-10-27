@@ -8,8 +8,9 @@ import { Task } from './models/task-model';
 })
 export class AppComponent implements OnInit {
   database: Task[] = []
-  detailTask: Task = new Task()
-  updateTask: Task | null = null
+  taskLogs: any[] = []
+  detailTask: Task | null = null
+  editTask: Task | null = null
 
   ngOnInit(): void {
     let todo = new Task('teste1', 'teste desc 1', new Date(), 'toDo')
@@ -20,26 +21,33 @@ export class AppComponent implements OnInit {
 
   onAddTask(newTask: Task) {
     this.database.push(newTask)
+    this.taskLogs.push({...newTask, log: 'Create'})
   }
 
   onDetailTask(task: Task) {
-    console.log(this.database)
     this.detailTask = task
+    this.taskLogs.push({...task, log: 'Read'})
   }
 
-  onUpdateTask(task: Task) {
-    this.updateTask = task
+  onEditTask(task: Task) {
+    this.editTask = task
   }
 
-  onSaveTask(updateTaskValues: Task) {
-    const task = this.database.find(task => task.id === this.updateTask?.id)
+  onUpdateTask(editTaskValues: Task) {
+    const task = this.database.find(task => task.id === this.editTask?.id)
     
     if (task) {
-      task.title = updateTaskValues.title
-      task.description = updateTaskValues.description
-      task.date = new Date(updateTaskValues.title)
+      this.taskLogs.push({...task, log: 'Update'})
+
+      task.title = editTaskValues.title
+      task.description = editTaskValues.description
+      task.date = new Date(editTaskValues.title)
       task.status = task.status
     }
   }
+
+  // onLogTask(task: Task) {
+  //   this.taskLogs.push(task)
+  // }
 
 }

@@ -7,9 +7,9 @@ import { Task } from 'src/app/models/task-model';
   styleUrls: ['./task-detail.component.scss']
 })
 export class TaskDetailComponent {
-  @Input() task = new Task()
+  @Input() task: Task | null = null
 
   clearDetail() {
-    this.task = new Task()
+    this.task = null
   }
 }
