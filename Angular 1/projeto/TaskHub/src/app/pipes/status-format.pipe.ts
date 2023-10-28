@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class StatusFormatPipe implements PipeTransform {
 
-
   transform(value: any, ...args: unknown[]): unknown {
     if (value === 'toDo') return 'To Do'
     if (value === 'inProgress') return 'In Progress'

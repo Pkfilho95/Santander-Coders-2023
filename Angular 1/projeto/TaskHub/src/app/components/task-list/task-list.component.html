@@ -7,7 +7,7 @@
                 <ng-container *ngFor="let task of taskList">
                     <ng-container *ngIf="task.status === column.value">
                         <div class="border border-1 border-{{column.color}} rounded-1 my-2">
-                            <div class="d-flex justify-content-between py-2 ps-2">
+                            <div class="d-flex justify-content-between py-2 ps-2" [appDateGreaterThanToday]="task.date">
                                 {{task.title}}
                                 <div>
                                     <i class="bi bi-eye me-2" (click)="showTaskDetail(task)" role="button"></i>

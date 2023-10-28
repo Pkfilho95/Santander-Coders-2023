@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { StatusFormatPipe } from './pipes/status-format.pipe';
 import { TaskLogsComponent } from './components/task-logs/task-logs.component';
+import { DateGreaterThanTodayDirective } from './directives/date-greater-than-today.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TaskLogsComponent } from './components/task-logs/task-logs.component';
     TaskDetailComponent,
     StatusFormatPipe,
     TaskLogsComponent,
+    DateGreaterThanTodayDirective,
   ],
   imports: [
     BrowserModule,

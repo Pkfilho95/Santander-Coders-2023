@@ -1,9 +1,9 @@
 <form [formGroup]="taskForm" (ngSubmit)="submitTask()" 
-    class="p-3 bg-dark text-light rounded-1">
+    class="p-3 bg-dark text-light rounded-1 h-100">
     <div class="row mt-2">
         <div class="col-12">
             <h3 class="d-flex justify-content-between">
-                {{!updateForm ? 'Add Task' : 'Update Task'}}
+                {{!updateForm ? 'Create Task' : 'Update Task'}}
                 <i (click)="clearForm()" role="button">&times;</i>
             </h3>
         </div>
@@ -50,6 +50,20 @@
                 class="alert alert-danger">
                 Status is required.
             </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-sm btn-outline-light" (click)="addTag()" type="button">+ Add tag</button>
+        </div>
+    </div>
+    <div class="row my-2" formArrayName="tags">
+        <div class="col-4 mt-2" *ngFor="let tag of tags.controls; let i = index">
+            <label class="form-label d-flex justify-content-between" for="tags">
+                Tag
+                <i role="button" (click)="removeTag(i)">&times;</i>
+            </label>
+            <input class="form-control" type="text" name="tags" id="tags" [formControlName]="i">
         </div>
     </div>
     <div class="row my-4">

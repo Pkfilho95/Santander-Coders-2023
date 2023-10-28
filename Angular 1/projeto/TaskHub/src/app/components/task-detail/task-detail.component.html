@@ -1,4 +1,4 @@
-<div class="p-3 bg-dark text-light rounded-1">
+<div class="p-3 bg-dark text-light rounded-1 h-100">
     <div class="row mt-2">
         <div class="col-12">
             <h3 class="d-flex justify-content-between">
@@ -29,6 +29,12 @@
         <div class="col-12">
             <label class="form-label" for="status">Status</label>
             <input class="form-control text-bg-dark" type="text" value="{{task?.status | statusFormat}}" disabled>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <label class="form-label" for="status">Tags</label>
+            <input class="form-control text-bg-dark" type="text" value="{{task?.tags}}" disabled>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/models/task-model';
 
 @Component({
@@ -13,22 +13,32 @@ export class TaskFormComponent implements OnChanges {
     description: ['', Validators.required],
     date: ['', Validators.required],
     status: ['toDo', Validators.required],
-
+    tags: this.formBuilder.array([])
   })
 
   @Input() task: Task | null = null
   @Output() newTask = new EventEmitter()
   @Output() updateTask = new EventEmitter()
+  @Output() clearTask = new EventEmitter()
 
   updateForm = false
 
   constructor(private formBuilder: FormBuilder) {}
   
   ngOnChanges(changes: SimpleChanges): void {
+    this.tags.clear()
+
     if (this.task) {
       this.taskForm.patchValue({...changes['task'].currentValue})
+      this.task.tags?.forEach(tag => {
+        this.addTag(tag)
+      })
       this.updateForm = true
     }
+  }
+
+  get tags() {
+    return this.taskForm.get('tags') as FormArray
   }
 
   submitTask() {
@@ -42,13 +52,23 @@ export class TaskFormComponent implements OnChanges {
     } else {
       this.updateTask.emit(this.taskForm.value)
     }
-    this.taskForm.reset()
-    this.updateForm = false
+    
+    this.clearForm()
   }
 
   clearForm() {
     this.taskForm.reset()
+    this.tags.clear()
+    this.clearTask.emit(null)
     this.updateForm = false
+  }
+
+  addTag(value = '') {
+    this.tags.push(this.formBuilder.control(value, Validators.required))
+  }
+
+  removeTag(index: number) {
+    this.tags.removeAt(index)
   }
 
 }

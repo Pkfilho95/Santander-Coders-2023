@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   editTask: Task | null = null
 
   ngOnInit(): void {
-    let todo = new Task('teste1', 'teste desc 1', new Date(), 'toDo')
+    let todo = new Task('teste1', 'teste desc 1', new Date('2023-10-28'), 'toDo')
     let progress = new Task('teste2', 'teste desc 2', new Date(), 'inProgress')
     let completed = new Task('teste3', 'teste desc 3', new Date(), 'Completed')
     this.database.push(todo, progress, completed)
@@ -41,9 +41,14 @@ export class AppComponent implements OnInit {
 
       task.title = editTaskValues.title
       task.description = editTaskValues.description
-      task.date = new Date(editTaskValues.title)
-      task.status = task.status
+      task.date = editTaskValues.date
+      task.status = editTaskValues.status
+      task.tags = editTaskValues.tags
     }
+  }
+
+  onClearTask(clearTask=null) {
+    this.editTask = clearTask
   }
 
   // onLogTask(task: Task) {
