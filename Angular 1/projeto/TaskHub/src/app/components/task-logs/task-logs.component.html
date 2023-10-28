@@ -6,11 +6,20 @@
     </div>
     <div class="row mt-2">
         <div class="col-12">
-            <div class="d-flex flex-column-reverse">
-                <div class="p-2" *ngFor="let task of taskLogs">
-                    {{task.log}}: task {{task.title}}
-                </div>
-            </div>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Task Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of taskLogs.reverse()">
+                        <td>{{task.log}}</td>
+                        <td>{{task.title}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
