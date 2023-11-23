@@ -1,0 +1,32 @@
+<ng-template #contentModal let-modal>
+    <div class="rounded-2">
+        <div class="modal-header d-flex">
+            <h4 class="modal-title" id="modal-basic-title">
+                {{pokemonDescription?.id | zeroFill}} - {{pokemonDescription?.name | titlecase}}
+            </h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <img src="{{pokemonDescription?.sprites?.front_default}}" alt="{{pokemonDescription?.name}} image">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col mt-2" *ngFor="let stat of stats">
+                            <span class="fw-bold">{{stat.name | uppercase}}</span>
+                            <div class="progress" aria-valuenow="stat.base">
+                                <div class="progress-bar fw-bold" [ngClass]="types[0]" [ngStyle]="{'width.%': stat.base}">{{stat.base}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-start">
+            <p class="badge {{type}} me-1" *ngFor="let type of types">
+                {{type | titlecase}}
+            </p>
+        </div>
+    </div>
+</ng-template>

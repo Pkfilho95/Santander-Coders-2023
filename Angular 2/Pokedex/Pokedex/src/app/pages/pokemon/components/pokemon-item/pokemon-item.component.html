@@ -1,0 +1,17 @@
+<div class="card h-100" [ngClass]="pokemonType[0]">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-bold">{{pokemonId | zeroFill}}</span>
+        <button class="btn btn-sm fw-bold" type="button" (click)="detail(pokemonId)">
+            Details
+        </button>
+    </div>
+    <img src="{{pokemonImage}}" class="card-img-top" alt="{{pokemon?.name}} image">
+    <div class="card-body text-bg-dark rounded-bottom-1">
+        <h5 class="card-title">{{pokemon?.name | titlecase}}</h5>
+        <div class="card-text d-flex mt-3">
+            <p class="badge {{type}} me-1" *ngFor="let type of pokemonType">
+                {{type | titlecase}}
+            </p>
+        </div>
+    </div>
+</div>

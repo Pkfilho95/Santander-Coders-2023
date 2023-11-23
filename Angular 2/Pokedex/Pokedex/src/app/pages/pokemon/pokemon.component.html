@@ -1,0 +1,18 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="navbar-nav me-auto ms-2 mb-lg-0">
+            <li class="nav-item text-light" type="button">
+                Home
+            </li>
+        </ul>
+        <form class="d-flex" [formGroup]="searchForm">
+            <input class="form-control me-2" type="text" placeholder="Search by name or id" formControlName="search">
+            <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container-fluid mt-3">
+    <app-pokemon-list [pokemonList]="pokemonList" [searchPokemon]="searchPokemon" (resetSearch)="onResetSearch($event)"></app-pokemon-list>
+</div>
