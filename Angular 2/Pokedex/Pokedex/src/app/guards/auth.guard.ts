@@ -5,7 +5,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = AppInjector.get(Router)
 
   if (!localStorage.getItem('is_authenticated')) {
-    router.navigate(['/login']);
+    router.navigate(['/']);
   }
   
   return !!localStorage.getItem('is_authenticated');
